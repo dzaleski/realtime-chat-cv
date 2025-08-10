@@ -1,0 +1,47 @@
+@import "variables";
+
+.chat-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-top: 1px solid #e6e6e6;
+
+  input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: border-color 0.3s;
+
+    &:focus {
+      border-color: $secondary-color;
+      outline: none;
+    }
+  }
+
+  .send-button {
+    background-color: $secondary-color;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+
+    i {
+      font-size: 16px;
+    }
+
+    &:hover {
+      background-color: darken($secondary-color, 5%);
+      transform: scale(1.1);
+    }
+
+    &:disabled {
+      background-color: #a0a0a0;
+      cursor: not-allowed;
+    }
+  }
+}

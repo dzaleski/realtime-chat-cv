@@ -1,0 +1,17 @@
+@import "variables";
+
+.container {
+  @include flex-center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.link-container {
+  @include flex-center;
+}

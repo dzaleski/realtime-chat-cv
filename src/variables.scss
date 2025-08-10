@@ -1,0 +1,12 @@
+$primary-color: #4e54c8;
+$secondary-color: #ffbb62;
+$background-color: darken(white, 15%);
+$text-color: #333333;
+$light-text-color: #aaaaaa;
+$border-color: #e6e6e6;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,55 @@
+@import "variables";
+
+.sidebar {
+  width: 55px;
+  height: 100vh;
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+
+  .icon-button {
+    background: none;
+    position: relative;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: color 0.3s;
+
+    &.active {
+      color: $secondary-color;
+    }
+
+    &:hover {
+      color: $secondary-color;
+    }
+
+    &:last-child {
+      margin-top: auto;
+    }
+
+    &.logout {
+      &:hover {
+        color: red;
+      }
+    }
+  }
+
+  .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

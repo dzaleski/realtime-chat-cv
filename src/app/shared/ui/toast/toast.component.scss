@@ -1,0 +1,27 @@
+.toast {
+  // One higher than modal z-index
+  z-index: 1001;
+  position: fixed;
+  margin-top: 20px;
+  right: 20px;
+  min-width: 250px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #ff8383;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toast-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}

@@ -1,0 +1,56 @@
+<button class="close-button" (click)="close.emit()">
+  <i class="fa fa-close"></i>
+</button>
+
+<form [formGroup]="searchForm" #form="ngForm" class="search-form">
+  <div class="search-container">
+    <app-input
+      formControlName="search"
+      type="text"
+      label="Search People"
+      placeholder="Enter name or email"
+    />
+  </div>
+</form>
+
+<div class="people-list">
+  @for(person of people(); track person.email) {
+  <div class="person-item">
+    <div class="person-avatar">
+      <img
+        [src]="person.avatarUrl"
+        [alt]="person.username + 'profile picutre'"
+      />
+    </div>
+    <div class="person-info">
+      <span class="person-name">{{ person.username }}</span>
+    </div>
+    <button
+      class="send-button"
+      [disabled]="
+        person.inviteStatus === 'accepted' || person.inviteStatus === 'pending'
+      "
+      (click)="onSentInvitation(person)"
+    >
+      @if(person.inviteStatus === 'pending') { Pending 🕊️ }
+      @else if(person.inviteStatus === 'accepted') { Accepted ✅ }
+      @else { Invite 📧 }
+    </button>
+  </div>
+  } @empty {
+  <div class="no-results">No results found. Try searching for a friend.</div>
+  }
+</div>
+
+<div class="pagination-controls">
+  <button (click)="onPreviousPage()" [disabled]="currentPage() === 1">
+    Previous
+  </button>
+  <span>Page {{ currentPage() }} of {{ numberOfPages() }}</span>
+  <button
+    (click)="onNextPage()"
+    [disabled]="currentPage() === numberOfPages()"
+  >
+    Next
+  </button>
+</div>

@@ -1,0 +1,164 @@
+@import "variables.scss";
+
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: darken(red, 15%);
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 2px 5px;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: lightgrey;
+  }
+}
+
+.search-form {
+  width: 100%;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+
+  app-input {
+    flex: 1;
+  }
+}
+
+.search-button-container {
+  height: 71px;
+  display: flex;
+  margin-bottom: 20px;
+
+  .search-button {
+    background: $primary-color;
+    border: none;
+    padding: 0px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 20px;
+    align-self: flex-end;
+    height: 44px;
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+      transform: scale(1.02);
+    }
+  }
+}
+
+.people-list {
+  margin-top: 10px;
+  min-height: 300px;
+
+  .person-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background: white;
+    padding: 10px;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    animation: fadeIn 0.3s ease;
+
+    &:hover {
+      background: darken(white, 5%);
+    }
+
+    .person-avatar img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .person-info {
+      flex: 1;
+    }
+
+    .person-name {
+      font-weight: bold;
+    }
+  }
+}
+
+.send-button {
+  background: $primary-color;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: darken($primary-color, 10%);
+  }
+
+  &[disabled] {
+    background: lighten($secondary-color, 10%);
+    cursor: not-allowed;
+  }
+}
+
+.no-results {
+  padding-top: 10px;
+  min-height: 300px;
+  text-align: center;
+  font-size: 16px;
+  color: $light-text-color;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  button {
+    background-color: $primary-color;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+
+    &:disabled {
+      background-color: lighten($primary-color, 20%);
+      cursor: not-allowed;
+    }
+  }
+
+  span {
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}

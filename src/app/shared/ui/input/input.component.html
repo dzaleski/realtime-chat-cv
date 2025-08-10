@@ -1,0 +1,20 @@
+<div class="form-group">
+  @if(label()){
+  <label [for]="formControlName()">{{ label() }}</label>
+  }
+  <input
+    [id]="formControlName()"
+    [name]="formControlName()"
+    [type]="type()"
+    [placeholder]="placeholder()"
+    [formControl]="formControl"
+    [class.error]="
+      formControl.errors && (formControl.touched || formControl.dirty)
+    "
+  />
+  @if(formControl.errors && (formControl.touched); as errorVisible){
+  <div class="error-message" [class.show]="errorVisible">
+    {{ formControl.errors | errorMessage }}
+  </div>
+  }
+</div>

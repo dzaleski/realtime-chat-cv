@@ -1,0 +1,22 @@
+@import "variables";
+
+.invitations-page {
+  background-color: darken(white, 15%);
+  padding: 20px;
+  height: 100vh;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+}
+
+.invitations-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.invitations-list {
+  display: grid;
+  gap: 15px;
+}

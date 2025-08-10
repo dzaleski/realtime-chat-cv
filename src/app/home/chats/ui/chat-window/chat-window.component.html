@@ -1,0 +1,14 @@
+<app-chat-header [user]="interlocutor()" />
+
+<div class="chat-messages">
+  @for (message of messages(); track message.id) {
+  <app-chat-message
+    [time]="message.timestamp"
+    [sentByMe]="message.authorEmail !== interlocutor().email"
+    [content]="message.content"
+    (removeMessage)="removeMessage.emit(message.id)"
+  />
+  }
+</div>
+
+<app-new-message-input (sendMessage)="sendMessage.emit($event)" />

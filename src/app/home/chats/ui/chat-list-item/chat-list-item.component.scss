@@ -1,0 +1,84 @@
+@import "variables";
+
+:host {
+  width: 100%;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid $border-color;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+
+  &.pinned {
+    background-color: $secondary-color;
+    color: lightgray;
+
+    .chat-info {
+      .chat-name {
+        color: white;
+      }
+
+      .chat-last-message {
+        color: darken(white, 5%);
+      }
+    }
+  }
+
+  .chat-avatar {
+    border-radius: 50%;
+    margin-right: 5px;
+
+    img {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  .chat-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .chat-name {
+        font-weight: bold;
+        color: $text-color;
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &.pinned {
+          color: white;
+        }
+      }
+
+      .chat-time {
+        color: $light-text-color;
+        font-size: 12px;
+      }
+    }
+
+    .chat-last-message {
+      color: $light-text-color;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 150px;
+      margin-top: 5px;
+    }
+  }
+}

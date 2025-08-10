@@ -1,0 +1,18 @@
+@import "variables";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  background-color: $background-color;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -1,0 +1,45 @@
+<app-chat-list
+  [searchControl]="searchControl"
+  [chats]="filteredChats()"
+  [pinnedChatId]="messagesService.pinnedChatId()"
+  (inviteModalOpen)="inviteModalOpen.set(true)"
+  (pinChat)="messagesService.displayChatMessages$.next($event)"
+/>
+
+<app-modal [isOpen]="inviteModalOpen()">
+  <app-new-chat-dialog-form
+    [people]="peopleService.people()"
+    [numberOfPages]="peopleService.numberOfPages()"
+    [currentPage]="peopleService.currentPage()"
+    (invite)="invitationsService.sendInvitation$.next($event)"
+    (close)="inviteModalOpen.set(false)"
+    (search)="
+      peopleService.search$.next($event);
+      peopleService.pagination$.next({
+        endBeforeEmail: null,
+        startAfterEmail: null,
+      })
+    "
+    (nextPage)="
+      peopleService.pagination$.next({
+        endBeforeEmail: null,
+        startAfterEmail: this.peopleService.lastEmail(),
+      })
+    "
+    (previousPage)="
+      peopleService.pagination$.next({
+        endBeforeEmail: this.peopleService.firstEmail(),
+        startAfterEmail: null,
+      })
+    "
+  />
+</app-modal>
+
+@if (messagesService.interlocutor(); as interlocutor) {
+<app-chat-window
+  [interlocutor]="interlocutor"
+  [messages]="messagesService.messages()"
+  (sendMessage)="messagesService.sendMessage$.next($event)"
+  (removeMessage)="messagesService.removeMessage$.next($event)"
+/>
+}

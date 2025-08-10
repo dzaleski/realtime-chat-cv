@@ -1,0 +1,28 @@
+@import "variables.scss";
+
+:host {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $border-color;
+
+  .search-bar {
+    width: 100%;
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid $border-color;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      background-color: lighten(lightgray, 10%);
+
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 8px rgba($primary-color, 0.3);
+        outline: none;
+      }
+    }
+  }
+}

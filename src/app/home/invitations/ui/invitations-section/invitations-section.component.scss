@@ -1,0 +1,21 @@
+@import "variables";
+
+:host {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.invitations-section {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 95%;
+
+  h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: $primary-color;
+  }
+}
